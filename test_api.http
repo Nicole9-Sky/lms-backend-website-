@@ -1,0 +1,70 @@
+### Test Django LMS API Endpoints
+
+### 1. Get all courses
+GET http://127.0.0.1:8000/api/courses/
+
+### Health Check
+GET http://127.0.0.1:8000/health/
+
+### API Documentation
+GET http://127.0.0.1:8000/api/
+
+### 2. Get categories
+GET http://127.0.0.1:8000/api/courses/categories/
+
+### 3. Get course details
+GET http://127.0.0.1:8000/api/courses/complete-web-development/
+
+### 4. Register a new user
+POST http://127.0.0.1:8000/api/users/register/
+Content-Type: application/json
+
+{
+    "username": "testuser",
+    "email": "test@example.com",
+    "password": "testpass123",
+    "password_confirm": "testpass123",
+    "first_name": "Test",
+    "last_name": "User",
+    "user_type": "student"
+}
+
+### 5. Login user
+POST http://127.0.0.1:8000/api/auth/login/
+Content-Type: application/json
+
+{
+    "email": "test@example.com",
+    "password": "testpass123"
+}
+
+### 6. Get user profile (replace YOUR_ACCESS_TOKEN_HERE with actual token from login)
+GET http://127.0.0.1:8000/api/users/profile/
+Authorization: Bearer YOUR_ACCESS_TOKEN_HERE
+
+### 7. Enroll in course (replace YOUR_ACCESS_TOKEN_HERE with actual token)
+POST http://127.0.0.1:8000/api/enrollments/enroll/complete-web-development/
+Authorization: Bearer YOUR_ACCESS_TOKEN_HERE
+
+### 8. Get course reviews
+GET http://127.0.0.1:8000/api/reviews/course/complete-web-development/
+
+### 9. Create a review (replace YOUR_ACCESS_TOKEN_HERE with actual token)
+POST http://127.0.0.1:8000/api/reviews/course/complete-web-development/create/
+Content-Type: application/json
+Authorization: Bearer YOUR_ACCESS_TOKEN_HERE
+
+{
+    "rating": 5,
+    "title": "Excellent course!",
+    "comment": "This course helped me learn web development from scratch. Highly recommended!"
+}
+
+### 10. Get course statistics
+GET http://127.0.0.1:8000/api/courses/stats/overview/
+
+### 11. Get featured courses
+GET http://127.0.0.1:8000/api/courses/lists/featured/
+
+### 12. Get bestseller courses
+GET http://127.0.0.1:8000/api/courses/lists/bestsellers/
