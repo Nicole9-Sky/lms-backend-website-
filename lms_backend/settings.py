@@ -14,7 +14,6 @@ from pathlib import Path
 import os
 import dj_database_url
 from decouple import config 
-from dotenv import load_dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -92,7 +91,6 @@ WSGI_APPLICATION = 'lms_backend.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 
-load_dotenv()
 
 
 DATABASES = {
