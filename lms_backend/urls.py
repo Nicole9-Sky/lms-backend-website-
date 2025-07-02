@@ -21,11 +21,12 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from .api_docs import api_documentation, health_check
 from rest_framework_simplejwt.views import (
     TokenObtainPairView,
     TokenRefreshView,
 )
-from .api_docs import api_documentation, health_check
+
 
 urlpatterns = [
     # Admin
