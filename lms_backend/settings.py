@@ -26,9 +26,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = config('SECRET_KEY', default='django-insecure-=f7)i713%k47n+u8-0!ym8c_rzc278u&du_uzqu8v$*%#bc6@d')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG', default=True, cast=bool)
+DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['https://lms-backend-website.onrender.com']
 
 if not DEBUG:
     ALLOWED_HOSTS.extend([
@@ -94,7 +94,7 @@ WSGI_APPLICATION = 'lms_backend.wsgi.application'
 
 
 DATABASES = {
-    'default': dj_database_url.config(default=os.getenv("DATABASE_URL"))
+    'default': dj_database_url.config(default=os.environ.get("DATABASE_URL"))
 }
 
 if 'DATABASE_URL' in os.environ:
